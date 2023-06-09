@@ -1,1 +1,50 @@
-hola mundo
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Estadisticas de pesos</title>
+</head>
+<body>
+    <h1>Estadisticas de pesos</h1>
+    <button onclick="estadisticasPesos()">Mostrar estadísticas</button>
+    <p id="resp"></p>
+
+    <script>
+        function estadisticasPesos() {
+            let pesos = []; 
+            let menosDe40 = 0;
+            let entre40y50 = 0;
+            let entre50y60 = 0;
+            let masDe60 = 0;
+
+            
+            for (let i = 1; i <= 10; i++) {
+                let peso = prompt(`Ingrese el peso del alumno ${i}:`);
+                pesos.push(parseFloat(peso));
+            }
+
+            
+            for (let i = 0; i < pesos.length; i++) {
+                if (pesos[i] < 40) {
+                    menosDe40++;
+                } else if (pesos[i] >= 40 && pesos[i] < 50) {
+                    entre40y50++;
+                } else if (pesos[i] >= 50 && pesos[i] < 60) {
+                    entre50y60++;
+                } else if (pesos[i] >= 60) {
+                    masDe60++;
+                }
+            }
+
+            
+            let respuesta = `Alumnos con peso menor a 40 kg: ${menosDe40}<br>`;
+            respuesta += `Alumnos con peso entre 40 kg y 50 kg: ${entre40y50}<br>`;
+            respuesta += `Alumnos con peso entre 50 kg y 60 kg: ${entre50y60}<br>`;
+            respuesta += `Alumnos con peso mayor o igual a 60 kg: ${masDe60}<br>`;
+
+            document.getElementById("resp").innerHTML= respuesta;
+        }
+    </script>
+</body>
+</html>
+
+
